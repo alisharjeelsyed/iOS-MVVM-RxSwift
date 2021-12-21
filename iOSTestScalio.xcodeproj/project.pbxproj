@@ -38,6 +38,7 @@
 		BBBD78D52771436D007E35AF /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD78D42771436D007E35AF /* HomeViewModelTest.swift */; };
 		BBBD78D727714894007E35AF /* MovieListData.json in Resources */ = {isa = PBXBuildFile; fileRef = BBBD78D627714894007E35AF /* MovieListData.json */; };
 		BBBD78ED27717529007E35AF /* MockHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD78EB277174E0007E35AF /* MockHome.swift */; };
+		BBBD78EF2771E2C4007E35AF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BBBD78EE2771E2C4007E35AF /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		BBBD78D42771436D007E35AF /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		BBBD78D627714894007E35AF /* MovieListData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieListData.json; sourceTree = "<group>"; };
 		BBBD78EB277174E0007E35AF /* MockHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHome.swift; sourceTree = "<group>"; };
+		BBBD78EE2771E2C4007E35AF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		BB02B5E42762FDF1008B8840 = {
 			isa = PBXGroup;
 			children = (
+				BBBD78EE2771E2C4007E35AF /* README.md */,
 				BB02B5EF2762FDF1008B8840 /* iOS-Test-Scalio */,
 				BB02B6062762FDF3008B8840 /* iOS-Test-ScalioTests */,
 				BB02B5EE2762FDF1008B8840 /* Products */,
@@ -394,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBBD78EF2771E2C4007E35AF /* README.md in Resources */,
 				BB02B6502766C24E008B8840 /* HomeViewController.storyboard in Resources */,
 				BB02B5FD2762FDF3008B8840 /* LaunchScreen.storyboard in Resources */,
 				BB02B5FA2762FDF3008B8840 /* Assets.xcassets in Resources */,

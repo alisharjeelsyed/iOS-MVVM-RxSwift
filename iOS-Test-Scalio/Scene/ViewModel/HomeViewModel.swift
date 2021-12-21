@@ -32,9 +32,10 @@ protocol HomeViewModelProtocol {
 
 final class HomeViewModel: HomeViewModelProtocol {
     
-    private struct HomeVMConstant {
-        static var NoResultMessage =
+    private enum Constants {
+        static let NoResultFoundErrorMessage =
         "Sorry, No result found for this search query."
+        static let EmtpyTextFieldError = "Search cannot be empty."
     }
     
     var items: BehaviorSubject<[UserCellViewModel]>
@@ -91,7 +92,7 @@ final class HomeViewModel: HomeViewModelProtocol {
 }
 
 // MARK: Private Methods
-extension HomeViewModel {
+private extension HomeViewModel {
     
     // Method to bind View
     func bindVM() {
@@ -108,7 +109,7 @@ extension HomeViewModel {
         displayCell.asObserver().subscribe(onNext: { [weak self] indexPath in
             guard let self = self,
                   let value = try? self.items.value(),
-                  indexPath.row <= value.count - 2 else { return }
+                  indexPath.row == value.count - 2 else { return }
             self.loadNextBatch()
         }).disposed(by: disposeBag)
         
@@ -121,6 +122,9 @@ extension HomeViewModel {
     }
     
     func loadData() {
+        
+        guard !_searchQuery.isEmpty
+        else { return  handleError.onNext(Constants.EmtpyTextFieldError) }
         
         let queryRequest = SearchRequest(searchQuery: _searchQuery, page: _pageIndex)
         loadData(requestParam: queryRequest)
@@ -143,7 +147,7 @@ extension HomeViewModel {
     func handleSuccess(data: SearchResultResponse) {
         
         guard data.items.count > 0 else {
-            handleError.onNext(HomeVMConstant.NoResultMessage)
+            handleError.onNext(Constants.NoResultFoundErrorMessage)
             items.onNext([])
             return
         }

@@ -16,8 +16,9 @@ final class HomeViewModelTest: XCTestCase {
         static let sampleTextBeforeOnNext = "Test"
         static let sampleTextAfterOnNext = "Sample"
         static let pageCount = 1
-        static let perPageItem = 1
+        static let perPageItem = 9
         static let indexPathToShow = IndexPath(row: 7, section: 0)
+        static let pageCountAfterLoadNextBadge = 2
     }
     
     var viewModel : HomeViewModel!
@@ -78,7 +79,7 @@ final class HomeViewModelTest: XCTestCase {
         
         viewModel.displayCell.onNext(Constants.indexPathToShow)
         
-        XCTAssertEqual(viewModel.pageIndex, (viewModel.pageIndex + 1))
+        XCTAssertEqual(viewModel.pageIndex, Constants.pageCountAfterLoadNextBadge)
     }
     
     func testDidTapOnSearchWhenNoResultFound() {
